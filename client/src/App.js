@@ -4,6 +4,7 @@ import './App.css';
 import Navbar from "./Navbar";
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
 import Feed from "./Feed";
+import Auth from "./Auth"
 
 
 
@@ -17,6 +18,7 @@ function App() {
         <Router>
             <Navbar/>
             <Routes>
+                <Route path='/auth' element={<Auth/>}/>
                 <Route path='/' element={<Feed/>}/>
                 <Route path='graph'/>
             </Routes>
