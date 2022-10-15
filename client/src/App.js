@@ -10,7 +10,7 @@ import Feed from "./Feed";
 function App() {
 
     useEffect(() => {
-        document.title = "Ironmen Lab1"
+        document.title = "SoundG8"
     }, [])
 
     return (
@@ -18,7 +18,7 @@ function App() {
             <Navbar/>
             <Routes>
                 <Route path='/' element={<Feed/>}/>
-               <Route path='graph'/>
+                <Route path='graph'/>
             </Routes>
         </Router>
 
