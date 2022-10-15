@@ -23,14 +23,14 @@ connection.on("connect", err => {
     if (err) {
         console.error(err.message);
     } else {
-        colName="Test2";
-        table="TableTest";
-        id="excellent";
-        columnList="(Test , Test2)"
-        values="('Marshall' , 'Ben')"
+        // colName="Test2";
+        // table="TableTest";
+        // id="excellent";
+        // columnList="(Test , Test2)"
+        // values="('Marshall' , 'Ben')"
         // readFullColumn(amount,table);
         // readFullRow(colName,table,id);
-        writeRow(columnList,table,values)
+        // writeRow(columnList,table,values)
         setTimeout(function () {
             //your code to be executed after 1 second
             connection.close();
@@ -95,7 +95,6 @@ function readFullRow(colName,table,ID) {
     connection.execSql(request);
 }
 
-// INSERT INTO TableTest(Test, Test2) VALUES ('inserted','another');
 function writeRow(colList,table,values) {
     console.log("Writting to table...");
 
