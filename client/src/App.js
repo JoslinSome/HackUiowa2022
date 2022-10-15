@@ -5,6 +5,7 @@ import Navbar from "./Navbar";
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
 import Feed from "./Feed";
 import Auth from "./Auth"
+import "./components.css";
 
 
 

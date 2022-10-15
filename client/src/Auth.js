@@ -2,6 +2,7 @@
 import React, { useState } from "react"
 import { Form, Button } from 'react-bootstrap';
 import './components.css'
+import {Link} from 'react-router-dom'
 
 export default function (props) {
   let [authMode, setAuthMode] = useState("signin")
@@ -9,6 +10,8 @@ export default function (props) {
   const changeAuthMode = () => {
     setAuthMode(authMode === "signin" ? "signup" : "signin")
   }
+
+
 
   if (authMode === "signin") {
     return (
@@ -88,8 +91,8 @@ export default function (props) {
             />
           </div>
           <div className="d-grid gap-2 mt-3">
-            <button type="submit" className="btn btn-primary submit-btn">
-              Submit
+            <button type="submit" className="btn btn-primary submit-btn" onClick={() => this.nextPath('/SpotifyLogin') }>
+              
             </button>
           </div>
           <p className="text-center mt-2">
