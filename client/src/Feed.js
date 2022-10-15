@@ -7,7 +7,6 @@ function Feed(props) {
         <div>
             <div className ="message">
                 <Post/>
-                <Feed/>
             </div>
         </div>
     );
