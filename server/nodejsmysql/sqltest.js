@@ -24,16 +24,16 @@ connection.on("connect", err => {
         console.error(err.message);
     } else {
         // colName="Test2";
-        table="TableTest";
+        // table="TableTest";
         // id="excellent";
         // columnList="(Test , Test2)"
         // values="('Marshall' , 'Ben')"
         // readFullColumn(amount,table);
         // readFullRow(colName,table,id);
         // writeRow(columnList,table,values)
-        map="Test='essayons'"
-        ID="test2"
-        updateRow(map,table,ID)
+        // map="Test='essayons'"
+        // ID="test2"
+        // updateRow(map,table,ID)
         setTimeout(function () {
             //Added a delay to allow query to process, we close the connection 1 sec after the query is done
             connection.close();
