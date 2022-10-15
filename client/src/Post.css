@@ -1,0 +1,12 @@
+.postbtn{
+    margin-top: 3vh;
+    border-radius: 40px;
+    width: 12vh;
+    height: 4vh;
+    margin-left: 33vw;
+    background-color: #a181c6;
+
+}
+.postbtn:hover{
+    background-color: #702fbb;
+}
