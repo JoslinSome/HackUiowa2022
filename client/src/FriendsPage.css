@@ -1,0 +1,11 @@
+.hr {
+    border: 6px solid #a181c6;
+}
+.scrollable-div {
+    background-color: #f1f1f1;
+    height: 70vh;
+    overflow: auto;
+    margin: 20px;
+    text-align: justify;
+    padding: 20px;
+}

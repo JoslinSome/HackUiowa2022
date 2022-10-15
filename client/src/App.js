@@ -4,6 +4,7 @@ import './App.css';
 import Navbar from "./Navbar";
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
 import Feed from "./Feed";
+import FriendsPage from "./FriendsPage";
 
 
 
@@ -18,7 +19,7 @@ function App() {
             <Navbar/>
             <Routes>
                 <Route path='/' element={<Feed/>}/>
-               <Route path='graph'/>
+               <Route path='friends' element={<FriendsPage/>}/>
             </Routes>
         </Router>
 
