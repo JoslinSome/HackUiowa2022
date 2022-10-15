@@ -20,7 +20,7 @@ function Navbar(props) {
                         </Link>
                     </li>
                     <li>
-                        <Link to='/graph' className='nav-links'>
+                        <Link to='/friends' className='nav-links'>
                             <h2>Friends</h2>
                         </Link>
                         </li>

@@ -1,7 +1,9 @@
 .post{
     border-radius: 25px;
-    border: 2px solid #73AD21;
+    border: 2px solid #a181c6;
     padding: 20px;
-    width: 200px;
-    height: 150px;
+    width: 40vw;
+    display: flex;
+    height: 35vh;
+    margin-left: 50vh;
 }
