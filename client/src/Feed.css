@@ -1,0 +1,6 @@
+.message {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height: 30vh;
+}
