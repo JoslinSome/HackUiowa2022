@@ -16,7 +16,7 @@ function Navbar(props) {
                 <ul className={click ? 'nav-menu active' : 'nav-menu' }>
                     <li>
                         <Link to='/' className='nav-links'>
-                            Home
+                            <h2>Home</h2>
                         </Link>
                     </li>
                     <li>
