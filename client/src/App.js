@@ -12,7 +12,7 @@ import "./components.css";
 function App() {
 
     useEffect(() => {
-        document.title = "Ironmen Lab1"
+        document.title = "SoundG8"
     }, [])
 
     return (
@@ -21,7 +21,7 @@ function App() {
             <Routes>
                 <Route path='/auth' element={<Auth/>}/>
                 <Route path='/' element={<Feed/>}/>
-               <Route path='graph'/>
+                <Route path='graph'/>
             </Routes>
         </Router>
 
