@@ -22,13 +22,13 @@ function Navbar(props) {
                     <li>
                         <Link to='/graph' className='nav-links'>
                             <h2>Friends</h2>
-                        </Link><
-                    /li>
+                        </Link>
+                        </li>
                     <li>
                         <Link to='/graph' className='nav-links'>
                             <h2>Library</h2>
-                        </Link><
-                    /li>
+                        </Link>
+                        </li>
                 </ul>
             </div>
         </div>
