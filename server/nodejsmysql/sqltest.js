@@ -32,7 +32,7 @@ connection.on("connect", err => {
         // readFullRow(colName,table,id);
         // writeRow(columnList,table,values)
         setTimeout(function () {
-            //your code to be executed after 1 second
+            //Added a delay to allow query to process, we close the connection 1 sec after the query is done
             connection.close();
         }, delayInMilliseconds);
     }
@@ -42,12 +42,12 @@ connection.connect();
 var delayInMilliseconds = 1000; //1 second
 
 
-function readFullColumn(colName,table) {
+function readFullColumn(colName, table) {
     console.log("Reading rows from the Table...");
 
     // Read all rows from table
     const request = new Request(
-        'SELECT '+ colName +' FROM [dbo].['+table+']',
+        'SELECT ' + colName + ' FROM [dbo].[' + table + ']',
         (err, rowCount) => {
             if (err) {
                 console.error(err.message);
@@ -68,14 +68,14 @@ function readFullColumn(colName,table) {
 }
 
 
-function readFullRow(colName,table,ID) {
+function readFullRow(colName, table, ID) {
     console.log("Reading rows from the Table...");
 
-    // Read all rows from table
+    // Read specific row from specific table
     const request = new Request(
 
-        "SELECT * FROM [dbo].["+table+"] WHERE "+colName+"='"+ID+"'",
-        
+        "SELECT * FROM [dbo].[" + table + "] WHERE " + colName + "='" + ID + "'",
+
         (err, rowCount) => {
             if (err) {
                 console.error(err.message);
@@ -95,13 +95,13 @@ function readFullRow(colName,table,ID) {
     connection.execSql(request);
 }
 
-function writeRow(colList,table,values) {
+function writeRow(colList, table, values) {
     console.log("Writting to table...");
 
-    // Read all rows from table
+    //Writting to new row to a given table with a set of values
     const request = new Request(
-        "INSERT INTO "+ table+" "+colList+" VALUES "+values,
-        (err, rowCount) => {
+        "INSERT INTO " + table + " " + colList + " VALUES " + values,
+        (err) => {
             if (err) {
                 console.error(err.message);
             } else {
@@ -110,12 +110,11 @@ function writeRow(colList,table,values) {
         }
 
     );
-
-        request.on("row", columns => {
+    request.on("row", columns => {
         columns.forEach(column => {
             console.log("%s\t%s", column.metadata.colName, column.value);
         });
     });
 
     connection.execSql(request);
-    }
+}
