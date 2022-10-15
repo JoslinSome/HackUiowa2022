@@ -24,13 +24,16 @@ connection.on("connect", err => {
         console.error(err.message);
     } else {
         // colName="Test2";
-        // table="TableTest";
+        table="TableTest";
         // id="excellent";
         // columnList="(Test , Test2)"
         // values="('Marshall' , 'Ben')"
         // readFullColumn(amount,table);
         // readFullRow(colName,table,id);
         // writeRow(columnList,table,values)
+        map="Test='essayons'"
+        ID="test2"
+        updateRow(map,table,ID)
         setTimeout(function () {
             //Added a delay to allow query to process, we close the connection 1 sec after the query is done
             connection.close();
@@ -106,6 +109,32 @@ function writeRow(colList, table, values) {
                 console.error(err.message);
             } else {
                 console.log("Finished writting");
+            }
+        }
+
+    );
+    request.on("row", columns => {
+        columns.forEach(column => {
+            console.log("%s\t%s", column.metadata.colName, column.value);
+        });
+    });
+
+    connection.execSql(request);
+}
+
+// UPDATE TableTest SET Test = 'changement' WHERE Test2 = 'excellent'
+
+function updateRow(map, table,id) {
+    console.log("Updating table...");
+
+    //Updating table at a given ID for given values to update
+    const request = new Request(
+        "UPDATE "+table+" SET "+map +" WHERE ID" + "=" +"'"+id+"'",
+        (err) => {
+            if (err) {
+                console.error(err.message);
+            } else {
+                console.log("Table updated");
             }
         }
 
