@@ -16,17 +16,17 @@ function Navbar(props) {
                 <ul className={click ? 'nav-menu active' : 'nav-menu' }>
                     <li>
                         <Link to='/' className='nav-links'>
-                            <h2>Home</h2>
+                            <h2>Feed</h2>
                         </Link>
                     </li>
                     <li>
                         <Link to='/graph' className='nav-links'>
-                            Graphs
+                            <h2>Friends</h2>
                         </Link><
                     /li>
                     <li>
                         <Link to='/graph' className='nav-links'>
-                            Graphs
+                            <h2>Library</h2>
                         </Link><
                     /li>
                 </ul>
