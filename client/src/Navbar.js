@@ -11,7 +11,7 @@ function Navbar(props) {
         <div className='navbar'>
             <div className='navbar-container container'>
 
-                <img src={logo}/>
+                <img className='logo' src={logo}/>
 
                 <ul className={click ? 'nav-menu active' : 'nav-menu' }>
                     <li>

@@ -1,5 +1,5 @@
 .navbar {
-    background: #1c2237;
+    background: #a181c6;
     height: 100px;
     display: flex;
     justify-content: center;
@@ -77,6 +77,10 @@
 
 .menu-icon {
     display: none;
+}
+
+.logo {
+    transform: scale(2);
 }
 
 @media screen and (max-width: 960px) {
