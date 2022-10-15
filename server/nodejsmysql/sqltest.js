@@ -26,8 +26,11 @@ connection.on("connect", err => {
         colName="Test2";
         table="TableTest";
         id="excellent";
+        columnList="(Test , Test2)"
+        values="('Marshall' , 'Ben')"
         // readFullColumn(amount,table);
-        readFullRow(colName,table,id);
+        // readFullRow(colName,table,id);
+        writeRow(columnList,table,values)
         setTimeout(function () {
             //your code to be executed after 1 second
             connection.close();
@@ -92,3 +95,28 @@ function readFullRow(colName,table,ID) {
     connection.execSql(request);
 }
 
+// INSERT INTO TableTest(Test, Test2) VALUES ('inserted','another');
+function writeRow(colList,table,values) {
+    console.log("Writting to table...");
+
+    // Read all rows from table
+    const request = new Request(
+        "INSERT INTO "+ table+" "+colList+" VALUES "+values,
+        (err, rowCount) => {
+            if (err) {
+                console.error(err.message);
+            } else {
+                console.log("Finished writting");
+            }
+        }
+
+    );
+
+        request.on("row", columns => {
+        columns.forEach(column => {
+            console.log("%s\t%s", column.metadata.colName, column.value);
+        });
+    });
+
+    connection.execSql(request);
+    }
