@@ -1,5 +1,4 @@
 const { Connection, Request } = require("tedious");
-
 // Create connection to database
 const config = {
     authentication: {
@@ -16,55 +15,39 @@ const config = {
     }
 };
 
-/*
-    //Use Azure VM Managed Identity to connect to the SQL database
-    const config = {
-        server: process.env["db_server"],
-        authentication: {
-            type: 'azure-active-directory-msi-vm',
-        },
-        options: {
-            database: process.env["db_database"],
-            encrypt: true,
-            port: 1433
-        }
-    };
-
-    //Use Azure App Service Managed Identity to connect to the SQL database
-    const config = {
-        server: process.env["db_server"],
-        authentication: {
-            type: 'azure-active-directory-msi-app-service',
-        },
-        options: {
-            database: process.env["db_database"],
-            encrypt: true,
-            port: 1433
-        }
-    });
-
-*/
 
 const connection = new Connection(config);
 
-// Attempt to connect and execute queries if connection goes through
+
 connection.on("connect", err => {
     if (err) {
         console.error(err.message);
     } else {
-        queryDatabase();
+        // colName="Test2";
+        // table="TableTest";
+        // id="excellent";
+        // columnList="(Test , Test2)"
+        // values="('Marshall' , 'Ben')"
+        // readFullColumn(amount,table);
+        // readFullRow(colName,table,id);
+        // writeRow(columnList,table,values)
+        setTimeout(function () {
+            //Added a delay to allow query to process, we close the connection 1 sec after the query is done
+            connection.close();
+        }, delayInMilliseconds);
     }
-    connection.close();
 });
 
 connection.connect();
+var delayInMilliseconds = 1000; //1 second
 
-function queryDatabase() {
+
+function readFullColumn(colName, table) {
     console.log("Reading rows from the Table...");
 
     // Read all rows from table
     const request = new Request(
-        `SELECT TOP (1000) * FROM [dbo].[TableTest]`,
+        'SELECT ' + colName + ' FROM [dbo].[' + table + ']',
         (err, rowCount) => {
             if (err) {
                 console.error(err.message);
@@ -72,8 +55,61 @@ function queryDatabase() {
                 console.log(`${rowCount} row(s) returned`);
             }
         }
+
     );
 
+    request.on("row", columns => {
+        columns.forEach(column => {
+            console.log("%s\t%s", column.metadata.colName, column.value);
+        });
+    });
+
+    connection.execSql(request);
+}
+
+
+function readFullRow(colName, table, ID) {
+    console.log("Reading rows from the Table...");
+
+    // Read specific row from specific table
+    const request = new Request(
+
+        "SELECT * FROM [dbo].[" + table + "] WHERE " + colName + "='" + ID + "'",
+
+        (err, rowCount) => {
+            if (err) {
+                console.error(err.message);
+            } else {
+                console.log(`${rowCount} row(s) returned`);
+            }
+        }
+
+    );
+
+    request.on("row", columns => {
+        columns.forEach(column => {
+            console.log("%s\t%s", column.metadata.colName, column.value);
+        });
+    });
+
+    connection.execSql(request);
+}
+
+function writeRow(colList, table, values) {
+    console.log("Writting to table...");
+
+    //Writting to new row to a given table with a set of values
+    const request = new Request(
+        "INSERT INTO " + table + " " + colList + " VALUES " + values,
+        (err) => {
+            if (err) {
+                console.error(err.message);
+            } else {
+                console.log("Finished writting");
+            }
+        }
+
+    );
     request.on("row", columns => {
         columns.forEach(column => {
             console.log("%s\t%s", column.metadata.colName, column.value);
