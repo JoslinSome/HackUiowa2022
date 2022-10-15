@@ -1,0 +1,39 @@
+.login-form {
+    border: 2px solid red;
+}
+
+mdb-navbar nav div {
+    max-height: 40px !important;
+}
+
+.color-nav {
+    background-color: #bb92cd;
+    max-height: 60px;
+}
+
+.btn-purp {
+    background-color: #501d7c;
+    }
+
+.submit-btn {
+    background-color: #bb92cd;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.link-primary {
+    color:#501d7c;
+    font-weight: 800;
+}
+
+.Auth-form {
+    line-height: 2;
+    border: 2px solid black;
+    border-radius: 20px;
+    width: 30%;
+    align-content: center;
+    margin: auto;
+    margin-top: 50px;
+    padding-left: 20px;
+}
+

@@ -9,6 +9,7 @@ function Feed(props) {
             <div className ="message">
                 <Post/>
 
+                <FeedItem/>
             </div>
             <FeedItem/>
             <br/>
