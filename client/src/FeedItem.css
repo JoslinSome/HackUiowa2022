@@ -8,6 +8,7 @@
     padding: 20px;
     width: var(--side);
     display: flex;
+    flex-direction: column;
     height: var(--side);
     margin-left: var(--margin)
 }

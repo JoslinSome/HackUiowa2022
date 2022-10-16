@@ -22,6 +22,8 @@ function FeedItem(props) {
     return (
         <div className ="post">
             {name && post?  displayTitles():displayNone()}
+            
+  
             <CallAPI query={query} type={type}/>
 
         </div>
