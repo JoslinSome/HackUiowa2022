@@ -1,7 +1,7 @@
-
 import React, { useState } from "react"
 import { Form, Button } from 'react-bootstrap';
 import './components.css'
+import {Link, Routes, Route, useNavigate} from 'react-router-dom';
 
 export default function (props) {
   let [authMode, setAuthMode] = useState("signin")
@@ -9,6 +9,15 @@ export default function (props) {
   const changeAuthMode = () => {
     setAuthMode(authMode === "signin" ? "signup" : "signin")
   }
+
+    const navigate = useNavigate();
+
+  const handleSubmit = event => {
+    event.preventDefault();
+
+    // 👇️ redirect to /contacts
+    navigate('/SpotifyLogin');
+  };
 
   if (authMode === "signin") {
     return (
@@ -23,7 +32,7 @@ export default function (props) {
               </span>
             </div>
             <div className="form-group mt-3">
-              <label>Email address: </label>
+              <label>Username: </label>
               <input
                 type="email"
                 className="form-control mt-1"
@@ -72,7 +81,7 @@ export default function (props) {
             />
           </div>
           <div className="form-group mt-3">
-            <label>Email address</label>
+            <label>Username</label>
             <input
               type="email"
               className="form-control mt-1"
@@ -88,8 +97,8 @@ export default function (props) {
             />
           </div>
           <div className="d-grid gap-2 mt-3">
-            <button type="submit" className="btn btn-primary submit-btn">
-              Submit
+            <button type="submit" className="btn btn-primary submit-btn" onClick={handleSubmit}>
+              Sign Up
             </button>
           </div>
           <p className="text-center mt-2">

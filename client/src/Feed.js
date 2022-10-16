@@ -8,8 +8,20 @@ function Feed(props) {
         <div>
             <div className ="message">
                 <Post/>
+
                 <FeedItem/>
             </div>
+            <FeedItem/>
+            <br/>
+            <FeedItem/>
+            <br/>
+            <FeedItem/>
+            <br/>
+            <FeedItem/>
+            <br/>
+            <FeedItem/>
+            <br/>
+
         </div>
     );
 }

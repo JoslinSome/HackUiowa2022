@@ -1,0 +1,8 @@
+.vl {
+    border-left: 6px solid #a181c6;
+    width: 25vw;
+    height: 100vh;
+    position: absolute;
+    left: 25%;
+    top: 0;
+}

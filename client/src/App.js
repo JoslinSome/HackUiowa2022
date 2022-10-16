@@ -4,9 +4,10 @@ import './App.css';
 import Navbar from "./Navbar";
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
 import Feed from "./Feed";
+import FriendsPage from "./FriendsPage";
 import Auth from "./Auth"
 import LoginSpotify from "./tempLoginToSpotify";
-
+import "./components.css";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
             <Routes>
                 <Route path='/auth' element={<Auth/>}/>
                 <Route path='/' element={<Feed/>}/>
+               <Route path='friends' element={<FriendsPage/>}/>
                 <Route path='graph'/>
                 <Route path='/LoginSpotify' element={<LoginSpotify/>}/>
             </Routes>
