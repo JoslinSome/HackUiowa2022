@@ -44,7 +44,7 @@ app.get('/create-user',(req, res) =>{
 app.get('/add-friend',(req, res) =>{
     const {userName,friend} = req.query
     let list = ''
-    //let sql= `UPDATE [dbo].[User] SET FRIENDS_LIST = 'Alfasdidt' WHERE USERNAME = 	'ssome';`
+    //let sql= `UPDATE [dbo].[User] SET FRIENDS_LIST = 'Alfasdidt' WHERE USERNAME ='ssome';`
     let sql = "Select FRIENDS_LIST FROM [dbo].[User] where USERNAME = '"+userName+"'"
     console.log(sql)
     executeSQL(sql, (err, data) => {
@@ -144,18 +144,23 @@ const executeSQL = (sql, callback) => {
 function createUser(name,userName,password) {
     const ID = Math.floor(Math.random() * 100000 + 1000);
 
-    let sql = `INSERT INTO [dbo].[User] (ID,NAME,USERNAME,PASSWORD,FRIENDS_LIST) VALUES('` + ID + `','` + name + `','` + userName + `','` + password + `','');`
+    let sql = "INSERT INTO [dbo].[User] (ID,NAME,USERNAME,PASSWORD,FRIENDS_LIST) VALUES('" + ID + "','" + name + "','" + userName + "','" + password + "');"
     console.log(sql)
     executeSQL(sql, (err, data) => {
         if (err)
             console.error(err);
     });
 }
+//done
 function addFriend(user,Friend)
 {
-
-
-
+    // UPDATE [dbo].[User] SET FRIENDS_LIST='joslin' WHERE USERNAME='aezouhri'
+    let sql= "UPDATE [dbo].[User] SET FRIENDS_LIST='"+Friend+"' WHERE USERNAME='"+user+"'";
+    console.log(sql)
+    executeSQL(sql, (err, data) => {
+        if (err)
+            console.error(err);
+    });
 
 }
 //or
