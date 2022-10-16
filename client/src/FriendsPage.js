@@ -9,7 +9,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import TextMessage from './TextMessage';
-import FriendIcon from './AddFriend.png';
+import FriendIcon from './addFriend.png';
 import React, {useState} from 'react';
 
 
@@ -36,7 +36,7 @@ function FriendsPage(props) {
             <div className="row">
                 <h3>Add Friend</h3>
                 <input className="rounded-input2" onChange={(event)=>setFriendName(event.target.value)}></input>
-                <button className="addFriend" onClick={handleClick}><img src={FriendIcon}/></button>
+                <button className="addFriend" onClick={handleClick}><img className="icon" src={FriendIcon}/></button>
             </div>
           <div className="scrollable-div">
               {friends.map((item,index)=>{

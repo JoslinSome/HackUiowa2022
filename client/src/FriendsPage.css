@@ -60,8 +60,12 @@
 }
 .addFriend {
     margin-left: 1vw;
-    height: 1vh;
+    height: 6vh;
     margin-top: 1vh;
+}
+
+.icon {
+    width: 30px;
 }
 
 .friends-list {
