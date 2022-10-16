@@ -8,18 +8,27 @@ export default function (props) {
   const [name, setName] = useState('')
   const [userName, setUserName] = useState('');
   const [password, setPassword] = useState('');
+
   const changeAuthMode = () => {
     setAuthMode(authMode === "signin" ? "signup" : "signin")
   }
 
     const navigate = useNavigate();
 
-  const handleSubmit = event => {
+  const handleLogin = event => {
     event.preventDefault();
-    fetch(`http://localhost:4000/create-user?name=${name}&userName=${userName}&password=${password}`)
-        .catch(err => console.error(err))
+    // fetch(`http://localhost:4000/create-user?name=${name}&userName=${userName}&password=${password}`)
+    //     .catch(err => console.error(err))
     // 👇️ redirect to /contacts
-   // navigate('/SpotifyLogin');
+   navigate('/');
+  };
+
+  const handleSignUp = event => {
+    event.preventDefault();
+    // fetch(`http://localhost:4000/create-user?name=${name}&userName=${userName}&password=${password}`)
+    //     .catch(err => console.error(err))
+    // 👇️ redirect to /contacts
+   navigate('/LoginSpotify');
   };
 
   if (authMode === "signin") {
@@ -51,7 +60,7 @@ export default function (props) {
               />
             </div>
             <div className="d-grid gap-2 mt-3">
-              <button type="submit" className="btn btn-primary submit-btn">
+              <button type="submit" onClick={handleLogin} className="btn btn-primary submit-btn">
                 Submit
               </button>
             </div>
@@ -103,7 +112,7 @@ export default function (props) {
             />
           </div>
           <div className="d-grid gap-2 mt-3">
-            <button type="submit" className="btn btn-primary submit-btn" onClick={handleSubmit}>
+            <button type="submit" className="btn btn-primary submit-btn" onClick={handleSignUp}>
               Sign Up
             </button>
           </div>
