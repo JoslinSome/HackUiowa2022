@@ -1,5 +1,6 @@
 import {useEffect, useRef, useState} from "react";
 import axios from "axios";
+import './getSpotifyAPICalls.css'
 
 
 function CallAPI(props){
@@ -14,11 +15,12 @@ function CallAPI(props){
 
     const currNumRef = useRef()
     currNumRef.current = currArtNum
-    const getToken = () => {
+    function getToken() {
         let urlParams = new URLSearchParams(window.location.hash.replace("#","?"));
         let token = urlParams.get('access_token');
         console.log(token)
         setToken(token)
+        return token
     }
 
     const logout = () => {
@@ -32,19 +34,20 @@ function CallAPI(props){
 
         const fetchData = async () => {
             // e.preventDefault()
+            let token = getToken()
             const {data} = await axios.get("https://api.spotify.com/v1/search", {
                 headers: {
                     Authorization: `Bearer ${token}`
                 },
                 params: {
-                    q: "Bob",
+                    q: "Bob Marley",
                     type: "artist"
                 }
             })
 
             setArtists(data.artists.items)
         }
-        fetchData();
+        fetchData().then(r => false);
 
     }, [])
     /*
@@ -93,7 +96,7 @@ function CallAPI(props){
     // getToken()
     return (
 
-        <div>
+        <div className={"APIClass"}>
             {renderArtists()}
         </div>
 
