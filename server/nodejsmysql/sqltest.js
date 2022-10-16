@@ -45,14 +45,14 @@ app.get('/add-friend',(req, res) =>{
     const {userName,friend} = req.query
     let list = ''
     //let sql= `UPDATE [dbo].[User] SET FRIENDS_LIST = 'Alfasdidt' WHERE USERNAME = 	'ssome';`
-    let sql = "Select FRIENDS_LIST FROM [dbo].[User] where USERNAME = "+userName
+    let sql = "Select FRIENDS_LIST FROM [dbo].[User] where USERNAME = '"+userName+"'"
     console.log(sql)
     executeSQL(sql, (err, data) => {
         if (err)
             console.error(err);
         list=data.rows[0][0].value
         list=list+friend+","
-        let sql2 = "UPDATE [dbo].[User] SET FRIENDS_LIST = '"+list+"' WHERE USERNAME = "+userName;
+        let sql2 = "UPDATE [dbo].[User] SET FRIENDS_LIST = '"+list+"' WHERE USERNAME = '"+userName+"'";
         console.log(sql2)
         executeSQL(sql2, (err, data) => {
             if (err)
@@ -71,7 +71,7 @@ function readFullRow(colName, table, ID) {
     // Read specific row from specific table
     const request = new Request(
 
-        "SELECT * FROM [dbo].[" + table + "] WHERE " + colName + "='" + ID + "'",
+        "SELECT * FROM [dbo].[" + table + "] WHERE " + colName + " = '" + ID + "'",
 
         (err, rowCount) => {
             if (err) {
