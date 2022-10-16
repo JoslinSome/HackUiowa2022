@@ -1,16 +1,26 @@
-import React from 'react';
+import React, {useState} from 'react';
 import MessageBox from "./messageBox";
 import "./Feed.css"
 import Post from "./Post";
 import FeedItem from "./FeedItem";
 function Feed(props) {
+    const [post, setPost] = useState('');
+    const [artist, setArtist] = useState('');
+    const [clicked,setClicked] = useState(false);
+    function addPost() {
+        return(<div>
+            <FeedItem side={'30vw'} margin={'50vh'} query={artist} type={"artist"} name={"Joslin"} post={post}/>
+            <br/>
+            <br/>
+            </div>)
+    }
+
     return (
         <div>
-            <div className ="message">
-                <Post/>
-
+            <div className ="message fix">
+                <Post setPost={setPost} setArtist={setArtist} setClicked={setClicked}/>
             </div>
-
+            {clicked? addPost():<div/>}
         <FeedItem side={'30vw'} margin={'50vh'} query={'KSI'} type={"artist"} name={"Joslin"} post={"I LOVE JJ"}/>
 
             <FeedItem side={'30vw'} margin={'50vh'} query={'Shakira'} type={"artist"} name={"Marshall"} post={"Shakira is the reason I wake up in the morning"}/>
