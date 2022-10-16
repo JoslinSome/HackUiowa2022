@@ -3,9 +3,8 @@ import "./TextMessage.css"
 function TextMessage(props) {
   const {text} = props
   return (
-    <div className="">
+    <div className="text-content">
       <input className="text-bubble" placeholder={text} />
-        <br/>
         <br/>
         <br/>
 
