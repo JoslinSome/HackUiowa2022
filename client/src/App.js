@@ -6,6 +6,7 @@ import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
 import Feed from "./Feed";
 import FriendsPage from "./FriendsPage";
 import Auth from "./Auth"
+import LoginSpotify from "./tempLoginToSpotify";
 import "./components.css";
 
 
@@ -23,6 +24,7 @@ function App() {
                 <Route path='/' element={<Feed/>}/>
                <Route path='friends' element={<FriendsPage/>}/>
                 <Route path='graph'/>
+                <Route path='/LoginSpotify' element={<LoginSpotify/>}/>
             </Routes>
         </Router>
 

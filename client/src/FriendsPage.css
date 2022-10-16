@@ -3,9 +3,10 @@
 }
 .scrollable-div {
     background-color: #f1f1f1;
-    height: 50vh;
+    height: 87vh;
     overflow: auto;
-    width: 25vw;
+    width: 25%;
+    float:left; /* add this */
 }
 
 .btn{
@@ -30,25 +31,41 @@
     border-radius: 5px;
     width: 65vw;
     margin-left: 1vw;
-    height: 5vh;
+    height: 10vh;
 }
 .btn2 {
+    margin-top: 30px;
     margin-left: 1vw;
 }
 .arrow{
     width: 30px;
 }
-.scrollable-div2 {
+.text-conversation {
     background-color: #f1f1f1;
-    height: 50vh;
-    overflow: auto;
-    width: 25vw;
-    margin-left: 30vw;
-
+    height: 70vh;
+    overflow: auto; /* if you don't want #second to wrap below #first */
 }
+
 .row {
     display: flex;                  /* establish flex container */
     flex-direction: row;            /* default value; can be omitted */
     flex-wrap: nowrap;              /* default value; can be omitted */
     justify-content: space-between; /* switched from default (flex-start, see below) */
+}
+
+.friends-list {
+    background-color: #f1f1f1;
+    height: 50vh;
+    overflow: auto;
+    width: 100%;
+    margin-left: 30vw;
+}
+
+.text-messages {
+    overflow: hidden;
+}
+
+.content {
+    overflow: hidden; /* will contain if #first is longer than #second */
+    width: 100%;
 }
