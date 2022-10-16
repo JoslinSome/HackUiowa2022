@@ -11,3 +11,6 @@
     height: var(--side);
     margin-left: var(--margin)
 }
+.display{
+    display: block;
+}

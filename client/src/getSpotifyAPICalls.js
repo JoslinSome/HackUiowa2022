@@ -9,7 +9,7 @@ function CallAPI(props){
     const [searchKey, setSearchKey] = useState("")
     const [artists, setArtists] = useState([])
     let [currArtNum, setArtNum] = useState(0)
-
+    const {query, type} = props;
     const searchKeyRef = useRef()
     searchKeyRef.current = searchKey
 
@@ -40,8 +40,8 @@ function CallAPI(props){
                     Authorization: `Bearer ${token}`
                 },
                 params: {
-                    q: "Bob Marley",
-                    type: "artist"
+                    q: query,
+                    type: type
                 }
             })
 
