@@ -96,7 +96,7 @@ function CallAPI(props){
     // getToken()
     return (
 
-        <div className={"APIClass"}>
+        <div className="APIClass">
             {renderArtists()}
         </div>
 
