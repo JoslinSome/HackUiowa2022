@@ -3,7 +3,7 @@ import axios from 'axios';
 
 
 function LoginSpotify(props) {
-    const CLIENT_ID = "08bafc4ac23d4a579760a17bf3eaa13f"
+    const CLIENT_ID = "ee003c00dbad406b99277f7c61394050"
     // const REDIRECT_URI = "http://localhost:3000/LoginSpotify"
     const REDIRECT_URI = "http://localhost:3000"
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
@@ -22,8 +22,6 @@ function LoginSpotify(props) {
     useEffect(() => {
         const hash = window.location.hash
         let token = window.localStorage.getItem("token")
-
-
 
         if (!token && hash) {
             token = hash.substring(1).split("&").find(elem => elem.startsWith("access_token")).split("=")[1]

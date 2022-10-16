@@ -9,7 +9,7 @@ import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import TextMessage from './TextMessage';
-import FriendIcon from './addFriend.png';
+import FriendIcon from './AddFriend.png';
 import React, {useState} from 'react';
 
 
