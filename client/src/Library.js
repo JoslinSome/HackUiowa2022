@@ -19,13 +19,7 @@ function Library(props) {
                     <div className="column"><FeedItem side={'15vw'} query={'Yuno Miles'} type={"artist"}/></div>
                 </div>
             <br/>
-            <br/>
-                <div className="row">
-                    <div className="column"><FeedItem side={'15vw'}/></div>
-                    <div className="column"><FeedItem side={'15vw'}/></div>
-                    <div className="column"><FeedItem side={'15vw'}/></div>
-                    <div className="column"><FeedItem side={'15vw'}/></div>
-                </div>
+    
         </div>
     );
 }
