@@ -1,9 +1,10 @@
 import React from 'react';
 import "./FeedItem.css";
+import CallAPI from "./getSpotifyAPICalls";
 function FeedItem(props) {
     return (
         <div className ="post">
-            <h2>HI</h2>
+            <CallAPI/>
         </div>
     );
 }
