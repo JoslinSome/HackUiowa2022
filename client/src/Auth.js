@@ -5,7 +5,9 @@ import {Link, Routes, Route, useNavigate} from 'react-router-dom';
 
 export default function (props) {
   let [authMode, setAuthMode] = useState("signin")
-
+  const [name, setName] = useState('')
+  const [userName, setUserName] = useState('');
+  const [password, setPassword] = useState('');
   const changeAuthMode = () => {
     setAuthMode(authMode === "signin" ? "signup" : "signin")
   }
@@ -14,9 +16,10 @@ export default function (props) {
 
   const handleSubmit = event => {
     event.preventDefault();
-
+    fetch(`http://localhost:4000/create-user?name=${name}&userName=${userName}&password=${password}`)
+        .catch(err => console.error(err))
     // 👇️ redirect to /contacts
-    navigate('/SpotifyLogin');
+   // navigate('/SpotifyLogin');
   };
 
   if (authMode === "signin") {
@@ -78,6 +81,7 @@ export default function (props) {
               type="email"
               className="form-control mt-1"
               placeholder="e.g Jane Doe"
+              onChange={(event)=> setName(event.target.value)}
             />
           </div>
           <div className="form-group mt-3">
@@ -86,6 +90,7 @@ export default function (props) {
               type="email"
               className="form-control mt-1"
               placeholder="Email Address"
+              onChange={(event)=> setUserName(event.target.value)}
             />
           </div>
           <div className="form-group mt-3">
@@ -94,6 +99,7 @@ export default function (props) {
               type="password"
               className="form-control mt-1"
               placeholder="Password"
+              onChange={(event)=> setPassword(event.target.value)}
             />
           </div>
           <div className="d-grid gap-2 mt-3">

@@ -1,8 +1,15 @@
 import React from 'react'
-
-function TextMessage() {
+import "./TextMessage.css"
+function TextMessage(props) {
+  const {text} = props
   return (
-    <div className="text-bubble">Hello</div>
+    <div className="">
+      <input className="text-bubble" placeholder={text} />
+        <br/>
+        <br/>
+        <br/>
+
+    </div>
   )
 }
 

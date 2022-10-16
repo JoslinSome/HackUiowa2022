@@ -3,7 +3,7 @@ import axios from 'axios';
 
 
 function LoginSpotify(props) {
-    const CLIENT_ID = "ee003c00dbad406b99277f7c61394050"
+    const CLIENT_ID = "08bafc4ac23d4a579760a17bf3eaa13f"
     // const REDIRECT_URI = "http://localhost:3000/LoginSpotify"
     const REDIRECT_URI = "http://localhost:3000"
     const AUTH_ENDPOINT = "https://accounts.spotify.com/authorize"
@@ -72,7 +72,7 @@ function LoginSpotify(props) {
     //         </div>
     //     ))
     // }
-
+    console.log(`${AUTH_ENDPOINT}?client_id=${CLIENT_ID}&redirect_uri=${REDIRECT_URI}&response_type=${RESPONSE_TYPE}`)
     return (
         <div className="App">
                 <h1>Spotify React</h1>

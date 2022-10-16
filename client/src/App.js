@@ -8,6 +8,7 @@ import FriendsPage from "./FriendsPage";
 import Auth from "./Auth"
 import LoginSpotify from "./tempLoginToSpotify";
 import "./components.css";
+import Library from "./Library";
 
 
 function App() {
@@ -23,7 +24,7 @@ function App() {
                 <Route path='/auth' element={<Auth/>}/>
                 <Route path='/' element={<Feed/>}/>
                <Route path='friends' element={<FriendsPage/>}/>
-                <Route path='graph'/>
+                <Route path='/library' element={<Library/>}/>
                 <Route path='/LoginSpotify' element={<LoginSpotify/>}/>
             </Routes>
         </Router>

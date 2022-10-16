@@ -9,17 +9,16 @@ function Feed(props) {
             <div className ="message">
                 <Post/>
 
-                <FeedItem/>
             </div>
-            <FeedItem/>
+            <FeedItem side={'30vw'} margin={'50vh'}/>
             <br/>
-            <FeedItem/>
+            <FeedItem side={'30vw'} margin={'50vh'}/>
             <br/>
-            <FeedItem/>
+            <FeedItem side={'30vw'} margin={'50vh'}/>
             <br/>
-            <FeedItem/>
+            <FeedItem side={'30vw'} margin={'50vh'}/>
             <br/>
-            <FeedItem/>
+            <FeedItem side={'30vw'} margin={'50vh'}/>
             <br/>
 
         </div>

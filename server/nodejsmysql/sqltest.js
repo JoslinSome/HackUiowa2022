@@ -1,46 +1,18 @@
 const { Connection, Request } = require("tedious");
 // Create connection to database
-const config = {
-    authentication: {
-        options: {
-            userName: "aezouhri", // update me
-            password: "SoundG8goats" // update me
-        },
-        type: "default"
-    },
-    server: "soundgateserver.database.windows.net", // update me
-    options: {
-        database: "SoundG8DB", //update me
-        encrypt: true
-    }
-};
+
+const express = require("express");
+const res = require("express/lib/response");
+let PORT = process.env.PORT || 4000
+app = express()
 
 
-const connection = new Connection(config);
 
 
-connection.on("connect", err => {
-    if (err) {
-        console.error(err.message);
-    } else {
-        // colName="Test2";
-        // table="TableTest";
-        // id="excellent";
-        // columnList="(Test , Test2)"
-        // values="('Marshall' , 'Ben')"
-        // readFullColumn(amount,table);
-        // readFullRow(colName,table,id);
-        // writeRow(columnList,table,values)
-        setTimeout(function () {
-            //Added a delay to allow query to process, we close the connection 1 sec after the query is done
-            connection.close();
-        }, delayInMilliseconds);
-    }
-});
 
-connection.connect();
+
 var delayInMilliseconds = 1000; //1 second
-
+console.log("Connected")
 
 function readFullColumn(colName, table) {
     console.log("Reading rows from the Table...");
@@ -64,10 +36,35 @@ function readFullColumn(colName, table) {
         });
     });
 
-    connection.execSql(request);
 }
-
-
+app.get('/create-user',(req, res) =>{
+    const {name,userName,password} = req.query
+    createUser(name,userName,password)
+})
+app.get('/add-friend',(req, res) =>{
+    const {userName,friend} = req.query
+    let list = ''
+    //let sql= `UPDATE [dbo].[User] SET FRIENDS_LIST = 'Alfasdidt' WHERE USERNAME = 	'ssome';`
+    let sql = "Select FRIENDS_LIST FROM [dbo].[User] where USERNAME = "+userName
+    console.log(sql)
+    executeSQL(sql, (err, data) => {
+        if (err)
+            console.error(err);
+        list=data.rows[0][0].value
+        list=list+friend+","
+        let sql2 = "UPDATE [dbo].[User] SET FRIENDS_LIST = '"+list+"' WHERE USERNAME = "+userName;
+        console.log(sql2)
+        executeSQL(sql2, (err, data) => {
+            if (err)
+                console.error(err);
+        });
+        res.set({
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*",
+        });
+        res.send("list")
+    });
+})
 function readFullRow(colName, table, ID) {
     console.log("Reading rows from the Table...");
 
@@ -91,8 +88,6 @@ function readFullRow(colName, table, ID) {
             console.log("%s\t%s", column.metadata.colName, column.value);
         });
     });
-
-    connection.execSql(request);
 }
 
 function writeRow(colList, table, values) {
@@ -108,7 +103,6 @@ function writeRow(colList, table, values) {
                 console.log("Finished writting");
             }
         }
-
     );
     request.on("row", columns => {
         columns.forEach(column => {
@@ -116,5 +110,57 @@ function writeRow(colList, table, values) {
         });
     });
 
-    connection.execSql(request);
 }
+
+const executeSQL = (sql, callback) => {
+    let connection = new Connection({
+        "authentication": {
+            "options": {
+                "userName": "aezouhri",
+                "password": "SoundG8goats"
+            },
+            "type": "default"
+        },
+        "server": "soundgateserver.database.windows.net",
+        "options": {
+            "validateBulkLoadParameters": false,
+            "rowCollectionOnRequestCompletion": true,
+            "database": "SoundG8DB",
+            "encrypt": true
+        }
+    });
+    connection.connect((err) => {
+        if (err)
+            return callback(err, null);
+        const request = new Request(sql, (err, rowCount, rows) => {
+            connection.close();
+            if (err)
+                return callback(err, null);
+            callback(null, {rowCount, rows});
+        });
+        connection.execSql(request);
+    });
+};
+function createUser(name,userName,password) {
+    const ID = Math.floor(Math.random() * 100000 + 1000);
+
+    let sql = `INSERT INTO [dbo].[User] (ID,NAME,USERNAME,PASSWORD,FRIENDS_LIST) VALUES('` + ID + `','` + name + `','` + userName + `','` + password + `','');`
+    console.log(sql)
+    executeSQL(sql, (err, data) => {
+        if (err)
+            console.error(err);
+    });
+}
+function addFriend(user,Friend)
+{
+
+
+
+
+}
+//or
+
+
+
+
+app.listen(PORT, () => console.log("Running on port 4000"));

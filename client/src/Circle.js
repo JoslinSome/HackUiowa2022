@@ -1,10 +1,11 @@
 import React from 'react';
 import "./Circle.css"
 function Circle(props) {
+    const {item} = props
     return (
         <div className='dot'>
             <div className="name">
-                J
+                {item.charAt(0)}
             </div>
         </div>
     );

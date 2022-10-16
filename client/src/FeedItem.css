@@ -1,9 +1,13 @@
+:root{
+    --side: 30vw;
+    --margin: 50vh;
+}
 .post{
     border-radius: 25px;
     border: 2px solid #a181c6;
     padding: 20px;
-    width: 40vw;
+    width: var(--side);
     display: flex;
-    height: 35vh;
-    margin-left: 50vh;
+    height: var(--side);
+    margin-left: var(--margin)
 }

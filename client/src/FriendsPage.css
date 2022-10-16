@@ -3,7 +3,7 @@
 }
 .scrollable-div {
     background-color: #f1f1f1;
-    height: 87vh;
+    height: 67vh;
     overflow: auto;
     width: 25%;
     float:left; /* add this */
@@ -33,6 +33,13 @@
     margin-left: 1vw;
     height: 10vh;
 }
+.rounded-input2{
+    border-radius: 5px;
+    width: 10vw;
+    margin-left: 1vw;
+    margin-top: 20px;
+    height: 2vh;
+}
 .btn2 {
     margin-top: 30px;
     margin-left: 1vw;
@@ -44,13 +51,17 @@
     background-color: #f1f1f1;
     height: 70vh;
     overflow: auto; /* if you don't want #second to wrap below #first */
+    margin-left: 10vw;
 }
 
 .row {
     display: flex;                  /* establish flex container */
-    flex-direction: row;            /* default value; can be omitted */
-    flex-wrap: nowrap;              /* default value; can be omitted */
-    justify-content: space-between; /* switched from default (flex-start, see below) */
+    justify-content: left; /* switched from default (flex-start, see below) */
+}
+.addFriend {
+    margin-left: 1vw;
+    height: 1vh;
+    margin-top: 1vh;
 }
 
 .friends-list {
