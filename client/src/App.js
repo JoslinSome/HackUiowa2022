@@ -5,6 +5,7 @@ import Navbar from "./Navbar";
 import {BrowserRouter as Router,Routes,Route} from "react-router-dom";
 import Feed from "./Feed";
 import Auth from "./Auth"
+import LoginSpotify from "./tempLoginToSpotify";
 
 
 
@@ -21,6 +22,7 @@ function App() {
                 <Route path='/auth' element={<Auth/>}/>
                 <Route path='/' element={<Feed/>}/>
                 <Route path='graph'/>
+                <Route path='/LoginSpotify' element={<LoginSpotify/>}/>
             </Routes>
         </Router>
 
