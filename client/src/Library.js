@@ -8,18 +8,15 @@ function Library(props) {
             <br/>
                 <div className="row">
                     <div className="column"><FeedItem side={'15vw'} query={'Bob Marley'} type={"artist"}/></div>
-                    <div className="column"><FeedItem side={'15vw'} query={'Shakira'} type={"artist"}/></div>
-                    <div className="column"><FeedItem side={'15vw'} query={'Avicii'} type={"artist"}/></div>
-                    <div className="column"><FeedItem side={'15vw'} query={'Ed Sheeran'} type={"artist"}/></div>
+                    <div className="column"><FeedItem side={'15vw'} query={"Shakira"} type={"artist"}/></div>
+                    <div className="column"><FeedItem side={'15vw'} query={"KSI"} type={"artist"}/></div>
+                    <div className="column"><FeedItem side={'15vw'} query={'Katy Perry'} type={"artist"}/></div>
                 </div>
                 <br/>
                 <br/>
 
             <div className="row">
-                    <div className="column"><FeedItem side={'15vw'} query={'Bts'} type={"artist"}/></div>
-                    <div className="column"><FeedItem side={'15vw'}/></div>
-                    <div className="column"><FeedItem side={'15vw'}/></div>
-                    <div className="column"><FeedItem side={'15vw'}/></div>
+                    <div className="column"><FeedItem side={'15vw'} query={'Yuno Miles'} type={"artist"}/></div>
                 </div>
             <br/>
             <br/>
