@@ -1,5 +1,10 @@
 .text-bubble{
     border-radius: 30px;
-    width: 60vw;
     height: 5vh;
+    margin-left: 650px;
+    max-width: fit-content;
+}
+
+.text-content {
+    
 }
