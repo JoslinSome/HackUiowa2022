@@ -12,7 +12,9 @@ function FeedItem(props) {
         <div className ="post">
             <h3 className='display'>{name}</h3>
             <h3 className='display'>{post}</h3>
-
+            <div>
+                
+            </div>
             <CallAPI query={query} type={type}/>
 
         </div>
